@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
 
         startBtn = findViewById(R.id.startBtn)
 
+        DeenSDKCore.setGPKEY("Test key")
         gphome.initSDK(
             context = this,
             language = "en",

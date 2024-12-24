@@ -33,6 +33,8 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        DeenSDKCore.setGPKEY("Test key")
         gphome.initSDK(
             context = requireContext(),
             language = "en",
