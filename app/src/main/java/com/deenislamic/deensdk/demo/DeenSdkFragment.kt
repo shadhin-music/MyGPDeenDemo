@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.deenislamic.sdk.DeenSDKCallback
 import com.deenislamic.sdk.DeenSDKCore
+import com.deenislamic.sdk.utils.toast
 import com.deenislamic.sdk.views.gphome.GPHome
 
 class DeenSdkFragment : Fragment(), DeenSDKCallback {
@@ -47,6 +48,10 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
     override fun DeenRequireToken(){
         val token  = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiODgwMTczODQzOTIzNiIsInJvbGUiOiJTREsiLCJuYmYiOjE3MzQ2MDI2OTQsImV4cCI6MTczNDY4OTA5NCwiaWF0IjoxNzM0NjAyNjk0fQ.9rLR_wAMObbKcg73cGFvu9E3Tk3Ws5c5BzHQM7lW9rsQsySGMkoiAofrup226eJTe34PF41tdekT9a-aBB9TSg"
         DeenSDKCore.setToken(token)
+
+    }
+
+    override fun onDeenTriggerEvent(event_name: String, param: String) {
 
     }
 

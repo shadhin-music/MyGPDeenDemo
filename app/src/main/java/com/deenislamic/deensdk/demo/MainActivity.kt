@@ -54,4 +54,8 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
         DeenSDKCore.setToken(token)
 
     }
+
+    override fun onDeenTriggerEvent(event_name: String, param: String) {
+
+    }
 }
