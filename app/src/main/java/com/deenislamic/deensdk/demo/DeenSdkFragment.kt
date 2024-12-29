@@ -56,4 +56,10 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
 
     }
 
+    override fun DeenTokenExpired() {
+
+        // get callback when api return 401
+
+    }
+
 }

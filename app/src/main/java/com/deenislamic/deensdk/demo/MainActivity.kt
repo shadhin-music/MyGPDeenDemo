@@ -59,4 +59,8 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
     override fun onDeenTriggerEvent(event_name: String, param: String) {
 
     }
+
+    override fun DeenTokenExpired() {
+        // get callback when api return 401
+    }
 }
