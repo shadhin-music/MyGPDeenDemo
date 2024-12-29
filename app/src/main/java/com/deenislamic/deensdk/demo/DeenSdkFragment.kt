@@ -41,6 +41,7 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
             language = "en",
             baseApiUrl = "https://api.deenislamic.com/api/",
             baseServiceUrl = "https://services.deenislamic.com/api/",
+            baseResourceUrl = "",
             callback = this
         )
     }
