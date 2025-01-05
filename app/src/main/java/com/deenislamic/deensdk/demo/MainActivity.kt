@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
     }
 
     override fun DeenRequireToken(){
-        val token  = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiODgwMTczODQzOTIzNiIsInJvbGUiOiJTREsiLCJuYmYiOjE3MzQ2MDI2OTQsImV4cCI6MTczNDY4OTA5NCwiaWF0IjoxNzM0NjAyNjk0fQ.9rLR_wAMObbKcg73cGFvu9E3Tk3Ws5c5BzHQM7lW9rsQsySGMkoiAofrup226eJTe34PF41tdekT9a-aBB9TSg"
+        val token  = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiODgwMTczODQzOTIzNiIsInJvbGUiOiJTREsiLCJuYmYiOjE3MzYwNjEzNDUsImV4cCI6MTczNjE0Nzc0NSwiaWF0IjoxNzM2MDYxMzQ1fQ.PQFoYneGKVqym0pzW2LX1dTmy9aco-6S6ak-qGSyCauzBWuckUOJqwxjUX8Ad3b9W9PKLD_w3YdvxYBIvnBbbw"
         DeenSDKCore.setToken(token)
 
     }
