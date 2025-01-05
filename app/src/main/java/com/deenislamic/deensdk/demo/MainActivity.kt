@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
 
     }
 
-    override fun DeenTokenExpired() {
+    override suspend fun DeenTokenExpired():String {
         // get callback when api return 401
+        return "";
     }
 }
