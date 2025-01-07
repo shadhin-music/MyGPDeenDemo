@@ -22,7 +22,7 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        DeenSDKCore.setupPermissionRequest(this)
+        DeenSDKCore.setupPermissionRequest(requireActivity())
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
