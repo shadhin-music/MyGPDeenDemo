@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
             baseApiUrl = "https://api.deenislamic.com/api/",
             baseServiceUrl = "https://services.deenislamic.com/api/",
             baseResourceUrl = "",
+            baseGPHomeUrl = "https://mygp-home.deenislamic.com/",
             callback = this
         )
 

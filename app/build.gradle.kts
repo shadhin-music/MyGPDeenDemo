@@ -45,7 +45,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.github.shadhin-music:MyGPDeenSDK:0.0.36")
-
+    //implementation("com.github.shadhin-music:MyGPDeenSDK:0.0.36")
+    implementation("com.deenislamic.mygp:gpsdk:0.0.39")
 
 }
