@@ -41,15 +41,22 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
         super.onViewCreated(view, savedInstanceState)
 
         DeenSDKCore.setGPKEY("Test key")
-        gphome.initSDK(
+        DeenSDKCore.setupCallback(this)
+
+        DeenSDKCore.initSDK(
             context = requireContext(),
             language = "en",
-            baseApiUrl = "https://api.deenislamic.com/api/",
-            baseServiceUrl = "https://services.deenislamic.com/api/",
-            baseResourceUrl = "",
-            baseGPHomeUrl = "https://mygp-home.deenislamic.com/",
-            callback = this
+            baseApiUrl = "https://mygp-dev.grameenphone.com/mygpapi/deenapi/",
+            baseServiceUrl = "https://mygp-dev.grameenphone.com/mygpapi/deenservice/",
+            baseResourceUrl ="https://mygp-dev.grameenphone.com/mygpstatic/deencontent/",
+            baseGPHomeUrl = "https://mygp-home.deenislamic.com/"
         )
+
+        gphome.initView(
+            designType = "homecard"
+
+        )
+
     }
 
     override fun DeenRequireToken(){

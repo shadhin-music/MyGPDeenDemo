@@ -27,15 +27,7 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
         startBtn = findViewById(R.id.startBtn)
 
         DeenSDKCore.setGPKEY("Test key")
-        gphome.initSDK(
-            context = this,
-            language = "en",
-            baseApiUrl = "https://api.deenislamic.com/api/",
-            baseServiceUrl = "https://services.deenislamic.com/api/",
-            baseResourceUrl = "",
-            baseGPHomeUrl = "https://mygp-home.deenislamic.com/",
-            callback = this
-        )
+
 
         startBtn.setOnClickListener {
             gphome.visibility = View.GONE
