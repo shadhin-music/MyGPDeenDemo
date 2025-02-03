@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".DeenSdkFragment">
+    android:orientation="vertical">
 
     <com.deenislamic.sdk.views.gphome.GPHome
         android:id="@+id/gphome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loadGPHomeBtn"/>
+        android:layout_height="wrap_content"/>
 
-    <com.deenislamic.sdk.views.gphome.GPHome
-        android:id="@+id/gphome1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gphome"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/enBtn"
@@ -44,7 +36,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@color/deen_white"
-        android:text="Bangla"
+        android:text="BN"
         android:textColor="@color/deen_black" />
 
 

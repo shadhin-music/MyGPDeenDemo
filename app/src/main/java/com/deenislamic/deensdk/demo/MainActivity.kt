@@ -1,6 +1,7 @@
 package com.deenislamic.deensdk.demo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.deenislamic.sdk.DeenSDKCallback
 import com.deenislamic.sdk.DeenSDKCore
+import com.deenislamic.sdk.service.network.response.gphome.GPFloatingData
 import com.deenislamic.sdk.views.gphome.GPHome
 
 class MainActivity : AppCompatActivity(), DeenSDKCallback {
@@ -28,11 +30,14 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
 
         DeenSDKCore.setGPKEY("Test key")
 
+        DeenSDKCore.getFloatingCardData(this)
+        Log.d("GPMainActivity","Pin Status: ${DeenSDKCore.isFloatingCardPinned()}")
+
 
         startBtn.setOnClickListener {
             gphome.visibility = View.GONE
             startBtn.visibility = View.GONE
-            openFragment(DeenSdkFragment())
+            openFragment(ViewpagerFragment())
         }
 
     }
@@ -43,18 +48,7 @@ class MainActivity : AppCompatActivity(), DeenSDKCallback {
             .commit()
     }
 
-    override fun DeenRequireToken(){
-        val token  = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiODgwMTczODQzOTIzNiIsInJvbGUiOiJTREsiLCJuYmYiOjE3MzYwNjEzNDUsImV4cCI6MTczNjE0Nzc0NSwiaWF0IjoxNzM2MDYxMzQ1fQ.PQFoYneGKVqym0pzW2LX1dTmy9aco-6S6ak-qGSyCauzBWuckUOJqwxjUX8Ad3b9W9PKLD_w3YdvxYBIvnBbbw"
-        DeenSDKCore.setToken(token)
-
-    }
-
-    override fun onDeenTriggerEvent(event_name: String, param: String) {
-
-    }
-
-    override suspend fun DeenTokenExpired():String {
-        // get callback when api return 401
-        return "";
+    override fun gpFloatingCardData(data: GPFloatingData?) {
+        Log.d("GPMainActivity", "gpFloatingCardData")
     }
 }

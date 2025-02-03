@@ -18,16 +18,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DeenSdkFragment : Fragment(), DeenSDKCallback {
+class DeenSdkAltFragment : Fragment(), DeenSDKCallback {
 
     private lateinit var  gphome: GPHome
-
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         DeenSDKCore.setupPermissionRequest(requireActivity())
-
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +31,7 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
     ): View? {
         // Inflate the layout for this fragment
 
-        val getview = inflater.inflate(R.layout.fragment_deen_sdk, container, false)
+        val getview = inflater.inflate(R.layout.fragment_deen_sdk_alt, container, false)
 
         gphome = getview.findViewById(R.id.gphome)
 
@@ -61,36 +57,24 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
 
         DeenSDKCore.setGPKEY("MyGP Testing Key")
 
-        gphome.initView(
-            designType = "homecard",
-            callback = this
-        )
-        /* gphome1.initSDK(
-             context = requireContext(),
-             language = "en",
-             baseApiUrl = "https://mygp-dev.grameenphone.com/mygpapi/deenapi/",
-             baseServiceUrl = "https://mygp-dev.grameenphone.com/mygpapi/deenservice/",
-             baseResourceUrl = "",
-             callback = this
-         )*/
+        gphome.initView("floatingcard",this)
 
-        //DeenSDKCore.openFromRC("dua",requireContext(),this)
-
-
-        Log.e("Isppinned",DeenSDKCore.isFloatingCardPinned().toString())
 
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
-        /*if(menuVisible)
-            DeenSDKCore.setupCallback(this)*/
+        if(menuVisible) {
+            /*DeenSDKCore.setupCallback(this)*/
+
+
+        }
     }
 
 
     override fun DeenRequireToken(){
 
-        Log.d("GPHomeCard","DeenRequireToken")
+        Log.d("GPFloatingCard","DeenRequireToken")
 
         lifecycleScope.launch(Dispatchers.IO) {
             //delay(5000)
@@ -100,7 +84,7 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
     }
 
     override fun onDeenTriggerEvent(event_name: String, param: String) {
-        Log.d("GPHomeCard","$event_name $param")
+        Log.d("GPFloatingCard","$event_name $param")
         lifecycleScope.launch(Dispatchers.Main) {
             context?.toast("Event: $event_name,$param")
         }
@@ -109,7 +93,7 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
 
     override suspend fun DeenTokenExpired():String {
 
-        Log.d("GPHomeCard","DeenTokenExpired")
+        Log.d("GPFloatingCard","DeenTokenExpired")
 
         val token  = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiODgwMTY4MDM5NjY0NyIsInJvbGUiOiJTREsiLCJuYmYiOjE3Mzc1NDg5MTYsImV4cCI6MTczNzYzNTMxNiwiaWF0IjoxNzM3NTQ4OTE2fQ.e09fQMdUqRVHyDzYz8_Du1IMIeoCcgxI-C3B43PDmWdZnP03vFTKE4N-lo2TN2jiLdRD0d0-YOfcSMrd63U2_A"
 
@@ -125,13 +109,17 @@ class DeenSdkFragment : Fragment(), DeenSDKCallback {
     }
 
     override fun onDeenSDKInitSuccess() {
-        Log.d("GPHomeCard","onDeenSDKInitSuccess")
+        Log.d("GPFloatingCard","onDeenSDKInitSuccess")
     }
 
     override fun onDeenSDKInitFailed() {
-        Log.d("GPHomeCard","onDeenSDKInitFailed")
+        Log.d("GPFloatingCard","onDeenSDKInitFailed")
     }
 
+
+    override fun gpFloatingPinnedStatus(isPinned: Boolean) {
+        Log.d("GPFloatingCard","gpFloatingPinnedStatus $isPinned")
+    }
 
 
 }
